@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="../WamSite-logo.png">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torque &amp; Tread — Auto Repair</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@500;700;800&family=Space+Mono&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:#111;
+  color:#F5F5F5;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.tk-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:44px;
+  padding:0 24px;
+  background:#0A0A0A;
+  color:#EDEBE6;
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  letter-spacing:.04em;
+}
+
+.tk-bar a{opacity:.72;}
+.tk-bar a:hover{opacity:1;}
+
+.tk-bar .links{
+  display:flex;
+  gap:18px;
+}
+
+.c4{
+  background:#111;
+  color:#F5F5F5;
+  min-height:100vh;
+}
+
+.c4-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8vw 0;
+}
+
+.c4-nav .logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.9rem;
+  letter-spacing:.03em;
+}
+
+.c4-nav .logo span{
+  color:#FF5A1F;
+}
+
+.c4-nav ul{
+  display:flex;
+  gap:30px;
+  font-family:'Archivo',sans-serif;
+  font-weight:500;
+  font-size:.82rem;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.c4-nav .cta{
+  background:#FF5A1F;
+  color:#111;
+  padding:11px 22px;
+  font-family:'Archivo',sans-serif;
+  font-weight:800;
+  font-size:.8rem;
+  text-transform:uppercase;
+}
+
+.c4-hero{
+  padding:70px 8vw 0;
+  clip-path:polygon(0 0,100% 0,100% 92%,0 100%);
+  background:linear-gradient(160deg,#181818,#111 55%);
+}
+
+.c4-hero h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.2rem,9vw,7.5rem);
+  line-height:.92;
+  letter-spacing:.01em;
+  margin:20px 0 0;
+}
+
+.c4-hero h1 span{
+  color:#FF5A1F;
+}
+
+.c4-hero p{
+  font-family:'Archivo',sans-serif;
+  font-weight:500;
+  font-size:1rem;
+  color:#B8B8B8;
+  max-width:44ch;
+  margin:26px 0 40px;
+  line-height:1.7;
+}
+
+.c4-hero .cta-row{
+  display:flex;
+  gap:16px;
+  padding-bottom:70px;
+  align-items:center;
+}
+
+.c4-btn{
+  background:#FF5A1F;
+  color:#111;
+  padding:16px 30px;
+  font-family:'Archivo',sans-serif;
+  font-weight:800;
+  font-size:.85rem;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+
+.c4-btn.ghost{
+  background:none;
+  border:2px solid #F5F5F5;
+  color:#F5F5F5;
+}
+
+.c4-tread{
+  height:14px;
+  background:repeating-linear-gradient(
+    115deg,
+    #FF5A1F 0 10px,
+    #111 10px 20px
+  );
+}
+
+.c4-steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:#2A2A2A;
+}
+
+.c4-step{
+  background:#111;
+  padding:50px 34px;
+}
+
+.c4-step .num{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3.4rem;
+  color:#3A3A3A;
+  line-height:1;
+}
+
+.c4-step h3{
+  font-family:'Archivo',sans-serif;
+  font-weight:800;
+  font-size:1.05rem;
+  text-transform:uppercase;
+  margin:14px 0 10px;
+}
+
+.c4-step p{
+  font-family:'Archivo',sans-serif;
+  font-size:.85rem;
+  color:#9A9A9A;
+  line-height:1.6;
+  margin:0;
+}
+
+.c4-services{
+  padding:80px 8vw;
+  background:#151515;
+}
+
+.c4-section-label{
+  color:#FF5A1F;
+  font-family:'Space Mono',monospace;
+  font-size:.7rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:15px;
+}
+
+.c4-services h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;
+  font-weight:400;
+  margin:0 0 35px;
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.service-card{
+  border:1px solid #303030;
+  padding:30px;
+  transition:.2s;
+}
+
+.service-card:hover{
+  border-color:#FF5A1F;
+  transform:translateY(-3px);
+}
+
+.service-card h3{
+  font-family:'Archivo',sans-serif;
+  text-transform:uppercase;
+  font-size:1rem;
+  margin:0 0 12px;
+}
+
+.service-card p{
+  font-family:'Archivo',sans-serif;
+  color:#999;
+  font-size:.82rem;
+  line-height:1.65;
+  margin:0 0 20px;
+}
+
+.service-card a{
+  color:#FF5A1F;
+  font-family:'Space Mono',monospace;
+  font-size:.68rem;
+}
+
+.c4-trust{
+  padding:80px 8vw;
+  background:#FF5A1F;
+  color:#111;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+}
+
+.c4-trust h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:4rem;
+  line-height:.95;
+  font-weight:400;
+  margin:0;
+}
+
+.c4-trust p{
+  font-family:'Archivo',sans-serif;
+  line-height:1.7;
+  font-size:.9rem;
+  margin:0;
+}
+
+.trust-list{
+  margin-top:25px;
+}
+
+.trust-list div{
+  font-family:'Archivo',sans-serif;
+  font-weight:800;
+  text-transform:uppercase;
+  font-size:.8rem;
+  padding:12px 0;
+  border-bottom:1px solid rgba(17,17,17,.25);
+}
+
+.c4-footer{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  padding:34px 8vw;
+  font-family:'Archivo',sans-serif;
+  font-size:.8rem;
+  color:#8A8A8A;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+}
+
+.tk-credit{
+  text-align:center;
+  padding:26px 8vw;
+  font-family:'Space Mono',monospace;
+  font-size:11px;
+  letter-spacing:.03em;
+  background:#0A0A0A;
+  color:rgba(237,235,230,.5);
+}
+
+.tk-credit a{
+  color:#FF5A1F;
+}
+
+@media(max-width:860px){
+
+  .c4-steps{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .service-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .c4-trust{
+    grid-template-columns:1fr;
+  }
+
+  .c4-nav ul{
+    display:none;
+  }
+}
+
+@media(max-width:560px){
+
+  .c4-steps,
+  .service-grid{
+    grid-template-columns:1fr;
+  }
+
+  .c4-hero{
+    padding-top:50px;
+  }
+
+  .c4-hero .cta-row{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .c4-trust h2{
+    font-size:3rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="tk-bar">
+
+  <a href="../index.html">← All Concepts</a>
+
+  <div class="links">
+    <a href="../florist/03-florist.html">← Florist</a>
+    <span>04 / 06</span>
+    <a href="../yoga-studio/05-yoga-studio.html">Next: Yoga →</a>
+  </div>
+
+</div>
+
+
+<section class="c4">
+
+<nav class="c4-nav">
+
+  <div class="logo">
+    TORQUE <span>&amp; TREAD</span>
+  </div>
+
+  <ul>
+    <li><a href="04-garage-services.html">Services</a></li>
+    <li><a href="04-garage-reviews.html">Reviews</a></li>
+    <li><a href="04-garage-location.html">Location</a></li>
+  </ul>
+
+  <a class="cta" href="04-garage-book.html">
+    Book Now
+  </a>
+
+</nav>
+
+
+<div class="c4-hero">
+
+  <h1>
+    FIXED RIGHT.<br>
+    <span>FIXED FAST.</span>
+  </h1>
+
+  <p>
+    Straight-talking diagnostics and honest pricing,
+    no upsells, no guesswork, no waiting three weeks for a quote.
+  </p>
+
+  <div class="cta-row">
+
+    <a class="c4-btn" href="04-garage-book.html">
+      Book a Slot
+    </a>
+
+    <a class="c4-btn ghost" href="04-garage-pricing.html">
+      See Pricing
+    </a>
+
+  </div>
+
+</div>
+
+
+<div class="c4-tread"></div>
+
+
+<div class="c4-steps">
+
+  <div class="c4-step">
+    <div class="num">01</div>
+    <h3>Diagnose</h3>
+    <p>
+      Full inspection and a plain-English writeup
+      before anything's touched.
+    </p>
+  </div>
+
+  <div class="c4-step">
+    <div class="num">02</div>
+    <h3>Repair</h3>
+    <p>
+      OEM or better parts, done by techs who've
+      seen it before.
+    </p>
+  </div>
+
+  <div class="c4-step">
+    <div class="num">03</div>
+    <h3>Road Test</h3>
+    <p>
+      Every job driven before it goes back to you,
+      not just checked off.
+    </p>
+  </div>
+
+</div>
+
+
+<section class="c4-services">
+
+  <div class="c4-section-label">
+    What We Do
+  </div>
+
+  <h2>
+    NO-NONSENSE AUTO REPAIR.
+  </h2>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>Oil &amp; Maintenance</h3>
+      <p>
+        Oil changes, filters, fluids, belts and
+        routine maintenance to keep your vehicle running right.
+      </p>
+      <a href="04-garage-services.html">VIEW SERVICES →</a>
+    </div>
+
+    <div class="service-card">
+      <h3>Brake Service</h3>
+      <p>
+        Pads, rotors, inspections and complete
+        brake system repairs.
+      </p>
+      <a href="04-garage-services.html">VIEW SERVICES →</a>
+    </div>
+
+    <div class="service-card">
+      <h3>Diagnostics</h3>
+      <p>
+        Check-engine lights, electrical problems,
+        strange noises and issues that are hard to explain.
+      </p>
+      <a href="04-garage-services.html">VIEW SERVICES →</a>
+    </div>
+
+    <div class="service-card">
+      <h3>AC &amp; Heating</h3>
+      <p>
+        Keep your cabin comfortable with AC,
+        heating and climate-control repairs.
+      </p>
+      <a href="04-garage-services.html">VIEW SERVICES →</a>
+    </div>
+
+    <div class="service-card">
+      <h3>Suspension</h3>
+      <p>
+        Shocks, struts, steering and suspension
+        components inspected and repaired.
+      </p>
+      <a href="04-garage-services.html">VIEW SERVICES →</a>
+    </div>
+
+    <div class="service-card">
+      <h3>Engine &amp; Transmission</h3>
+      <p>
+        From warning lights to major repairs,
+        we'll tell you what's actually going on.
+      </p>
+      <a href="04-garage-services.html">VIEW SERVICES →</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="c4-trust">
+
+  <div>
+
+    <h2>
+      YOUR CAR.<br>
+      OUR JOB.
+    </h2>
+
+  </div>
+
+  <div>
+
+    <p>
+      We believe auto repair shouldn't feel like a guessing game.
+      You get a clear explanation, an honest estimate and a call
+      before we do anything outside the original plan.
+    </p>
+
+    <div class="trust-list">
+
+      <div>✓ Upfront Estimates</div>
+      <div>✓ No Surprise Charges</div>
+      <div>✓ Quality Parts</div>
+      <div>✓ Experienced Technicians</div>
+      <div>✓ Every Repair Road Tested</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="c4-footer">
+
+  <div>Mon–Sat, 7am–6pm</div>
+
+  <a href="04-garage-location.html">
+    1140 Industrial Way
+  </a>
+
+</div>
+
+</section>
+
+
+<div class="tk-credit">
+  Design concept by
+  <a href="mailto:tahmidkhondokar@gmail.com">
+    Tahmid Khondokar
+  </a>
+  — tahmidkhondokar@gmail.com
+</div>
+
+</body>
+</html>

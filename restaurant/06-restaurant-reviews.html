@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../WamSite-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reviews — Marrow &amp; Vine</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;1,400;1,500&family=Work+Sans:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="06-restaurant.css">
+
+<style>
+  .reviews-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 6vw 110px;
+    overflow:hidden;
+  }
+
+  .reviews-heading {
+    text-align:center;
+    margin-bottom:55px;
+  }
+
+  .reviews-heading .section-label {
+    margin-bottom:15px;
+  }
+
+  .reviews-heading h1 {
+    font-family:'Spectral',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(2.5rem,5vw,4rem);
+    margin:0 0 15px;
+  }
+
+  .reviews-heading p {
+    max-width:560px;
+    margin:auto;
+    color:rgba(241,231,221,.58);
+    font-family:'Work Sans',sans-serif;
+    font-size:.92rem;
+    line-height:1.7;
+  }
+
+  .google-summary {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+    margin-bottom:40px;
+    font-family:'Work Sans',sans-serif;
+  }
+
+  .google-logo {
+    font-size:1.15rem;
+    font-weight:600;
+    letter-spacing:-.04em;
+  }
+
+  .google-logo .g-blue { color:#4285F4; }
+  .google-logo .g-red { color:#EA4335; }
+  .google-logo .g-yellow { color:#FBBC05; }
+  .google-logo .g-green { color:#34A853; }
+
+  .overall-rating {
+    color:#F1E7DD;
+    font-size:.9rem;
+  }
+
+  .overall-stars {
+    color:#C98A3E;
+    letter-spacing:2px;
+  }
+
+  .review-window {
+    position:relative;
+    overflow:visible;
+  }
+
+  .review-track {
+    display:flex;
+    gap:22px;
+    transition:transform .65s cubic-bezier(.22,.61,.36,1);
+  }
+
+  .review-card {
+    flex:0 0 calc((100% - 44px) / 3);
+    min-height:260px;
+    background:#1B1511;
+    border:1px solid rgba(241,231,221,.11);
+    border-radius:16px;
+    padding:28px;
+    box-shadow:0 18px 50px rgba(0,0,0,.2);
+    transition:
+      transform .4s ease,
+      opacity .4s ease,
+      border-color .4s ease;
+  }
+
+  .review-card:hover {
+    transform:translateY(-8px);
+    border-color:rgba(201,138,62,.35);
+  }
+
+  .review-top {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:22px;
+  }
+
+  .reviewer {
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .avatar {
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#C98A3E;
+    color:#14100D;
+    font-family:'Spectral',serif;
+    font-size:1.15rem;
+  }
+
+  .reviewer-name {
+    font-family:'Work Sans',sans-serif;
+    font-size:.84rem;
+    font-weight:600;
+  }
+
+  .review-date {
+    margin-top:4px;
+    font-family:'Work Sans',sans-serif;
+    font-size:.7rem;
+    color:rgba(241,231,221,.42);
+  }
+
+  .google-small {
+    font-family:'Work Sans',sans-serif;
+    font-weight:600;
+    font-size:.8rem;
+  }
+
+  .google-small span:nth-child(1){color:#4285F4}
+  .google-small span:nth-child(2){color:#EA4335}
+  .google-small span:nth-child(3){color:#FBBC05}
+  .google-small span:nth-child(4){color:#34A853}
+
+  .review-stars {
+    color:#C98A3E;
+    letter-spacing:3px;
+    font-size:.85rem;
+    margin-bottom:15px;
+  }
+
+  .review-card h3 {
+    font-family:'Spectral',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.3rem;
+    margin:0 0 12px;
+  }
+
+  .review-card p {
+    font-family:'Work Sans',sans-serif;
+    font-size:.83rem;
+    line-height:1.75;
+    color:rgba(241,231,221,.58);
+    margin:0;
+  }
+
+  .review-controls {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    margin-top:42px;
+  }
+
+  .review-arrow {
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid rgba(201,138,62,.45);
+    background:transparent;
+    color:#C98A3E;
+    cursor:pointer;
+    font-size:1.2rem;
+    transition:.25s ease;
+  }
+
+  .review-arrow:hover {
+    background:#C98A3E;
+    color:#14100D;
+  }
+
+  .review-dots {
+    display:flex;
+    gap:7px;
+    align-items:center;
+  }
+
+  .review-dot {
+    width:7px;
+    height:7px;
+    border:0;
+    padding:0;
+    border-radius:50%;
+    background:rgba(241,231,221,.25);
+    cursor:pointer;
+    transition:.25s ease;
+  }
+
+  .review-dot.active {
+    width:22px;
+    border-radius:10px;
+    background:#C98A3E;
+  }
+
+  .fictional-note {
+    text-align:center;
+    margin-top:30px;
+    font:10px 'Space Mono',monospace;
+    color:rgba(241,231,221,.25);
+    letter-spacing:.03em;
+  }
+
+  @media(max-width:900px) {
+    .review-card {
+      flex:0 0 calc((100% - 22px) / 2);
+    }
+  }
+
+  @media(max-width:600px) {
+    .reviews-page {
+      padding:60px 6vw 80px;
+    }
+
+    .review-card {
+      flex:0 0 100%;
+    }
+
+    .review-track {
+      gap:15px;
+    }
+
+    .review-card {
+      min-height:280px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="tk-bar">
+  <a href="../index.html">← All Concepts</a>
+
+  <div class="links">
+    <a href="06-restaurant.html">← Marrow &amp; Vine</a>
+    <span>06 / 06</span>
+    <a href="../index.html">Back to Start →</a>
+  </div>
+</div>
+
+<nav class="c6-nav">
+
+  <a class="logo" href="06-restaurant.html">
+    Marrow &amp; Vine
+  </a>
+
+  <ul>
+    <li><a href="06-restaurant-menu.html">Menu</a></li>
+    <li><a href="06-restaurant-reservations.html">Reservations</a></li>
+    <li><a href="06-restaurant-private-dining.html">Private Dining</a></li>
+    <li><a href="06-restaurant-location.html">Location</a></li>
+  </ul>
+
+  <a class="cta" href="06-restaurant-reservations.html">
+    Reserve a Table
+  </a>
+
+</nav>
+
+
+<main class="reviews-page">
+
+  <div class="reviews-heading">
+
+    <div class="section-label">
+      From Our Guests
+    </div>
+
+    <h1>Worth coming back for.</h1>
+
+    <p>
+      A few words from the people who have pulled up a chair,
+      stayed a little too long, and made themselves at home.
+    </p>
+
+  </div>
+
+
+  <div class="google-summary">
+
+    <div class="google-logo">
+      <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+    </div>
+
+    <div class="overall-rating">
+      <strong>4.9</strong>
+      <span class="overall-stars">★★★★★</span>
+      <span> · 128 reviews</span>
+    </div>
+
+  </div>
+
+
+  <div class="review-window">
+
+    <div class="review-track" id="reviewTrack">
+
+      <article class="review-card">
+
+        <div class="review-top">
+
+          <div class="reviewer">
+            <div class="avatar">C</div>
+
+            <div>
+              <div class="reviewer-name">Claire M.</div>
+              <div class="review-date">2 weeks ago</div>
+            </div>
+          </div>
+
+          <div class="google-small">
+            <span>G</span><span>o</span><span>o</span><span>g</span>le
+          </div>
+
+        </div>
+
+        <div class="review-stars">★★★★★</div>
+
+        <h3>“The kind of dinner you remember.”</h3>
+
+        <p>
+          Everything felt thoughtful without feeling fussy.
+          The short rib was incredible, and the wine pairing
+          was spot on. We will absolutely be back.
+        </p>
+
+      </article>
+
+
+      <article class="review-card">
+
+        <div class="review-top">
+
+          <div class="reviewer">
+            <div class="avatar">M</div>
+
+            <div>
+              <div class="reviewer-name">Marcus R.</div>
+              <div class="review-date">1 month ago</div>
+            </div>
+          </div>
+
+          <div class="google-small">
+            <span>G</span><span>o</span><span>o</span><span>g</span>le
+          </div>
+
+        </div>
+
+        <div class="review-stars">★★★★★</div>
+
+        <h3>“Beautiful food, even better atmosphere.”</h3>
+
+        <p>
+          The room is intimate and warm. We came for an anniversary
+          and ended up staying almost three hours. The staff made
+          the entire evening feel effortless.
+        </p>
+
+      </article>
+
+
+      <article class="review-card">
+
+        <div class="review-top">
+
+          <div class="reviewer">
+            <div class="avatar">S</div>
+
+            <div>
+              <div class="reviewer-name">Sofia L.</div>
+              <div class="review-date">3 weeks ago</div>
+            </div>
+          </div>
+
+          <div class="google-small">
+            <span>G</span><span>o</span><span>o</span><span>g</span>le
+          </div>
+
+        </div>
+
+        <div class="review-stars">★★★★★</div>
+
+        <h3>“A neighborhood gem.”</h3>
+
+        <p>
+          Seasonal menu, friendly staff, and a chef who clearly
+          cares about every plate. The beet and burrata deserves
+          a permanent spot.
+        </p>
+
+      </article>
+
+
+      <article class="review-card">
+
+        <div class="review-top">
+
+          <div class="reviewer">
+            <div class="avatar">D</div>
+
+            <div>
+              <div class="reviewer-name">Daniel K.</div>
+              <div class="review-date">2 months ago</div>
+            </div>
+          </div>
+
+          <div class="google-small">
+            <span>G</span><span>o</span><span>o</span><span>g</span>le
+          </div>
+
+        </div>
+
+        <div class="review-stars">★★★★☆</div>
+
+        <h3>“Worth making a reservation for.”</h3>
+
+        <p>
+          Small menu, excellent execution. The chocolate torte
+          was the perfect ending. Loved the atmosphere and
+          the attention to detail.
+        </p>
+
+      </article>
+
+
+      <article class="review-card">
+
+        <div class="review-top">
+
+          <div class="reviewer">
+            <div class="avatar">A</div>
+
+            <div>
+              <div class="reviewer-name">Avery T.</div>
+              <div class="review-date">3 months ago</div>
+            </div>
+          </div>
+
+          <div class="google-small">
+            <span>G</span><span>o</span><span>o</span><span>g</span>le
+          </div>
+
+        </div>
+
+        <div class="review-stars">★★★★★</div>
+
+        <h3>“Exactly what a neighborhood restaurant should be.”</h3>
+
+        <p>
+          Cozy without being cramped, elevated without being
+          pretentious. The sea bass and wine pairing were
+          fantastic.
+        </p>
+
+      </article>
+
+
+      <article class="review-card">
+
+        <div class="review-top">
+
+          <div class="reviewer">
+            <div class="avatar">J</div>
+
+            <div>
+              <div class="reviewer-name">James P.</div>
+              <div class="review-date">4 months ago</div>
+            </div>
+          </div>
+
+          <div class="google-small">
+            <span>G</span><span>o</span><span>o</span><span>g</span>le
+          </div>
+
+        </div>
+
+        <div class="review-stars">★★★★★</div>
+
+        <h3>“A fantastic date-night spot.”</h3>
+
+        <p>
+          Dim lighting, great cocktails, incredible food.
+          It has that rare feeling where everything seems
+          to slow down once you sit at the table.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+
+  <div class="review-controls">
+
+    <button class="review-arrow" id="prevReview" aria-label="Previous reviews">
+      ←
+    </button>
+
+    <div class="review-dots" id="reviewDots"></div>
+
+    <button class="review-arrow" id="nextReview" aria-label="Next reviews">
+      →
+    </button>
+
+  </div>
+
+
+  <div class="fictional-note">
+    Fictional reviews created for this WamSites design concept.
+  </div>
+
+</main>
+
+
+<div class="tk-credit">
+  Design concept by
+  <a href="mailto:tahmidkhondokar@gmail.com">
+    Tahmid Khondokar
+  </a>
+  — tahmidkhondokar@gmail.com
+</div>
+
+
+<script>
+
+const track = document.getElementById("reviewTrack");
+const cards = Array.from(document.querySelectorAll(".review-card"));
+const dotsContainer = document.getElementById("reviewDots");
+const nextButton = document.getElementById("nextReview");
+const prevButton = document.getElementById("prevReview");
+
+let current = 0;
+
+function cardsVisible() {
+
+  if (window.innerWidth <= 600) {
+    return 1;
+  }
+
+  if (window.innerWidth <= 900) {
+    return 2;
+  }
+
+  return 3;
+
+}
+
+function maxIndex() {
+
+  return Math.max(0, cards.length - cardsVisible());
+
+}
+
+function createDots() {
+
+  dotsContainer.innerHTML = "";
+
+  const count = maxIndex() + 1;
+
+  for (let i = 0; i < count; i++) {
+
+    const dot = document.createElement("button");
+
+    dot.className = "review-dot";
+
+    if (i === current) {
+      dot.classList.add("active");
+    }
+
+    dot.setAttribute("aria-label", `Go to review ${i + 1}`);
+
+    dot.addEventListener("click", () => {
+
+      current = i;
+
+      updateCarousel();
+
+    });
+
+    dotsContainer.appendChild(dot);
+
+  }
+
+}
+
+function updateCarousel() {
+
+  const visible = cardsVisible();
+
+  if (current > maxIndex()) {
+    current = maxIndex();
+  }
+
+  const cardWidth =
+    cards[0].getBoundingClientRect().width;
+
+  const gap =
+    parseFloat(getComputedStyle(track).gap) || 0;
+
+  const offset =
+    current * (cardWidth + gap);
+
+  track.style.transform =
+    `translateX(-${offset}px)`;
+
+  document.querySelectorAll(".review-dot").forEach((dot, i) => {
+
+    dot.classList.toggle(
+      "active",
+      i === current
+    );
+
+  });
+
+}
+
+nextButton.addEventListener("click", () => {
+
+  current++;
+
+  if (current > maxIndex()) {
+    current = 0;
+  }
+
+  updateCarousel();
+
+});
+
+
+prevButton.addEventListener("click", () => {
+
+  current--;
+
+  if (current < 0) {
+    current = maxIndex();
+  }
+
+  updateCarousel();
+
+});
+
+
+window.addEventListener("resize", () => {
+
+  createDots();
+  updateCarousel();
+
+});
+
+
+createDots();
+updateCarousel();
+
+
+let autoPlay = setInterval(() => {
+
+  current++;
+
+  if (current > maxIndex()) {
+    current = 0;
+  }
+
+  updateCarousel();
+
+}, 5000);
+
+
+const carousel =
+  document.querySelector(".review-window");
+
+carousel.addEventListener("mouseenter", () => {
+
+  clearInterval(autoPlay);
+
+});
+
+
+carousel.addEventListener("mouseleave", () => {
+
+  autoPlay = setInterval(() => {
+
+    current++;
+
+    if (current > maxIndex()) {
+      current = 0;
+    }
+
+    updateCarousel();
+
+  }, 5000);
+
+});
+
+</script>
+
+</body>
+</html>

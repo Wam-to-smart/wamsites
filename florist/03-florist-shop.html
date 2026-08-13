@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../WamSite-logo.png"><meta charset="UTF-8">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Thistle &amp; Bloom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{ box-sizing:border-box; } body{ margin:0; -webkit-font-smoothing:antialiased; }
+  a{ text-decoration:none; color:inherit; } ul{ list-style:none; margin:0; padding:0; } svg{ display:block; }
+
+  .tk-bar{ display:flex; justify-content:space-between; align-items:center; height:44px; padding:0 24px; background:#0A0A0A; color:#EDEBE6; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.04em; }
+  .tk-bar a{ opacity:.72; } .tk-bar a:hover{ opacity:1; } .tk-bar .links{ display:flex; gap:18px; }
+
+  .c3{ background:#FBF7F0; color:#2F3B27; min-height:100vh; }
+  .c3-nav{ display:flex; justify-content:space-between; align-items:center; padding:20px 8vw 26px; }
+  .c3-nav .logo{ font-family:'Italiana',serif; font-size:1.4rem; letter-spacing:.03em; display:flex; align-items:center; gap:10px; }
+  .c3-nav ul{ display:flex; gap:32px; font-family:'Jost',sans-serif; font-size:.88rem; font-weight:400; }
+  .c3-nav .cta{ background:#6B7A5E; color:#FBF7F0; padding:10px 22px; border-radius:30px; font-family:'Jost',sans-serif; font-size:.82rem; }
+  .c3-nav .cur{ color:#6B7A5E; }
+
+  .page-head{ padding:40px 8vw 10px; }
+  .page-head .eyebrow{ font-family:'Jost',sans-serif; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:#8D9A80; margin-bottom:14px; }
+  .page-head h1{ font-family:'Italiana',serif; font-weight:400; font-size:clamp(2rem,4.4vw,3rem); margin:0 0 12px; color:#3A4A30; }
+  .page-head p{ font-family:'Jost',sans-serif; font-weight:300; font-size:1rem; line-height:1.7; color:#5C6B50; max-width:52ch; margin:0; }
+
+  .shop-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; padding:40px 8vw 80px; }
+  .bunch{ background:#F1E9DC; border-radius:18px; padding:0 0 26px; overflow:hidden; }
+  .bunch .swatch{ height:150px; border-radius:18px 18px 0 0; }
+  .bunch .b1{ background:linear-gradient(135deg,#E8C4B8,#D8CBB0); }
+  .bunch .b2{ background:linear-gradient(135deg,#B9C7A5,#E8C4B8); }
+  .bunch .b3{ background:linear-gradient(135deg,#D8CBB0,#6B7A5E); }
+  .bunch .body{ padding:22px 24px 0; }
+  .bunch h3{ font-family:'Italiana',serif; font-size:1.15rem; font-weight:400; margin:0 0 8px; color:#3A4A30; }
+  .bunch p{ font-family:'Jost',sans-serif; font-weight:300; font-size:.85rem; color:#5C6B50; line-height:1.6; margin:0 0 16px; }
+  .bunch .row{ display:flex; justify-content:space-between; align-items:center; }
+  .bunch .price{ font-family:'Space Mono',monospace; font-size:.85rem; color:#3A4A30; }
+  .bunch .add{ background:#2F3B27; color:#FBF7F0; padding:9px 16px; border-radius:20px; font-family:'Jost',sans-serif; font-size:.78rem; }
+
+  .c3-footer{ border-top:1px solid rgba(47,59,39,.12); padding:32px 8vw; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:'Jost',sans-serif; font-size:.82rem; color:#5C6B50; }
+  .tk-credit{ text-align:center; padding:26px 8vw; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.03em; background:#0A0A0A; color:rgba(237,235,230,.5); }
+  .tk-credit a{ color:#E8C4B8; }
+  @media (max-width:860px){ .c3-nav ul{ display:none; } .shop-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .shop-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+  <div class="tk-bar">
+    <a href="../index.html">← All Concepts</a>
+    <div class="links"><a href="03-florist.html">Thistle &amp; Bloom Home</a></div>
+  </div>
+
+  <section class="c3">
+    <nav class="c3-nav">
+      <a class="logo" href="03-florist.html">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6" r="4" fill="#E8C4B8"/><circle cx="6" cy="11" r="4" fill="#B9C7A5"/><circle cx="14" cy="11" r="4" fill="#D8CBB0"/><circle cx="10" cy="10" r="2.4" fill="#6B7A5E"/></svg>
+        Thistle &amp; Bloom
+      </a>
+      <ul><li class="cur">Shop</li><li><a href="03-florist-weddings.html">Weddings</a></li><li><a href="03-florist-delivery.html">Delivery</a></li></ul>
+      <a class="cta" href="03-florist-delivery.html">Order Flowers</a>
+    </nav>
+
+    <div class="page-head">
+      <div class="eyebrow">Shop</div>
+      <h1>This week's bunches.</h1>
+      <p>Cut and tied by hand each morning — what's shown here is what's actually in the cooler today, not a catalog.</p>
+    </div>
+
+    <div class="shop-grid">
+      <div class="bunch"><div class="swatch b1"></div><div class="body"><h3>The Everyday</h3><p>A loose seasonal mix, whatever's freshest this week.</p><div class="row"><div class="price">$38</div><a class="add" href="03-florist-delivery.html">Order</a></div></div></div>
+      <div class="bunch"><div class="swatch b2"></div><div class="body"><h3>Soft Blush</h3><p>Garden roses, ranunculus, and sweet pea in pale pink tones.</p><div class="row"><div class="price">$52</div><a class="add" href="03-florist-delivery.html">Order</a></div></div></div>
+      <div class="bunch"><div class="swatch b3"></div><div class="body"><h3>Wild Green</h3><p>Foliage-forward with a few statement blooms tucked in.</p><div class="row"><div class="price">$45</div><a class="add" href="03-florist-delivery.html">Order</a></div></div></div>
+    </div>
+
+    <div class="c3-footer">
+      <div>Open Tue–Sun, 9am–6pm</div>
+      <div>88 Garden Lane</div>
+    </div>
+  </section>
+
+  <div class="tk-credit">Design concept by <a href="mailto:tahmidkhondokar@gmail.com">Tahmid Khondokar</a> — tahmidkhondokar@gmail.com</div>
+
+</body>
+</html>

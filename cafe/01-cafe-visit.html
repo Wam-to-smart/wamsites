@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../WamSite-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visit &amp; Order — Ember &amp; Oak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{ box-sizing:border-box; } body{ margin:0; -webkit-font-smoothing:antialiased; }
+  a{ text-decoration:none; color:inherit; } ul{ list-style:none; margin:0; padding:0; }
+  input,textarea{ font:inherit; }
+
+  .tk-bar{ display:flex; justify-content:space-between; align-items:center; height:44px; padding:0 24px; background:#0A0A0A; color:#EDEBE6; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.04em; }
+  .tk-bar a{ opacity:.72; } .tk-bar a:hover{ opacity:1; } .tk-bar .links{ display:flex; gap:18px; }
+
+  .c1{ background:#F4EDE4; color:#2B1B12; min-height:100vh; }
+  .c1-nav{ display:flex; justify-content:space-between; align-items:center; padding:18px 8vw 22px; border-bottom:1px solid rgba(43,27,18,.12); }
+  .c1-nav .logo{ font-family:'Fraunces', serif; font-weight:600; font-size:1.3rem; letter-spacing:-.01em; }
+  .c1-nav ul{ display:flex; gap:34px; font-family:'Inter',sans-serif; font-size:.9rem; }
+  .c1-nav .order{ background:#2B1B12; color:#F4EDE4; padding:10px 20px; border-radius:2px; font-family:'Inter',sans-serif; font-size:.85rem; font-weight:500; }
+  .c1-nav .cur{ opacity:.4; }
+
+  .visit-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:60px; padding:60px 8vw 90px; }
+  .page-head .eyebrow{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#A9825C; margin-bottom:16px; }
+  .page-head h1{ font-family:'Fraunces', serif; font-weight:400; font-size:clamp(2rem,4.4vw,2.9rem); margin:0 0 20px; }
+  .info-row{ display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px dashed rgba(43,27,18,.15); font-family:'Inter',sans-serif; font-size:.92rem; }
+  .info-row .k{ color:#6B5544; }
+
+  .order-form{ background:#2B1B12; color:#F4EDE4; border-radius:6px; padding:38px 34px; }
+  .order-form h2{ font-family:'Fraunces',serif; font-weight:600; font-size:1.4rem; margin:0 0 8px; }
+  .order-form .sub{ font-family:'Inter',sans-serif; font-size:.85rem; color:rgba(244,237,228,.6); margin:0 0 26px; }
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-family:'Space Mono',monospace; font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; color:#D9B888; margin-bottom:8px; }
+  .field input, .field select{ width:100%; background:rgba(244,237,228,.08); border:1px solid rgba(244,237,228,.2); border-radius:3px; padding:11px 12px; color:#F4EDE4; font-family:'Inter',sans-serif; font-size:.9rem; }
+  .field input::placeholder{ color:rgba(244,237,228,.35); }
+  .submit-btn{ width:100%; background:#C1502E; color:#F4EDE4; padding:14px; border-radius:3px; font-family:'Inter',sans-serif; font-weight:500; font-size:.9rem; text-align:center; margin-top:8px; }
+  .form-note{ font-family:'Space Mono',monospace; font-size:.7rem; color:rgba(244,237,228,.4); margin-top:16px; text-align:center; }
+
+  .tk-credit{ text-align:center; padding:26px 8vw; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.03em; background:#0A0A0A; color:rgba(237,235,230,.5); }
+  .tk-credit a{ color:#D97C4A; }
+  @media (max-width:860px){ .c1-nav ul{ display:none; } .visit-wrap{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+  <div class="tk-bar">
+    <a href="index.html">← All Concepts</a>
+    <div class="links"><a href="01-cafe.html">Ember &amp; Oak Home</a></div>
+  </div>
+
+  <section class="c1">
+    <nav class="c1-nav">
+      <a class="logo" href="01-cafe.html">Ember &amp; Oak</a>
+      <ul><li><a href="01-cafe-menu.html">Menu</a></li><li><a href="01-cafe-origins.html">Origins</a></li><li class="cur">Visit</li></ul>
+      <a class="order" href="01-cafe-menu.html">Order Ahead</a>
+    </nav>
+
+    <div class="visit-wrap">
+      <div>
+        <div class="page-head">
+          <div class="eyebrow">Visit Us</div>
+          <h1>Come in, or skip the line.</h1>
+        </div>
+        <div class="info-row"><div class="k">Address</div><div>412 Maple Row</div></div>
+        <div class="info-row"><div class="k">Hours</div><div>Daily, 7am – 4pm</div></div>
+        <div class="info-row"><div class="k">Phone</div><div>(555) 014-2200</div></div>
+        <div class="info-row"><div class="k">Parking</div><div>Street parking, free after 6pm</div></div>
+      </div>
+
+      <form class="order-form" onsubmit="event.preventDefault(); this.querySelector('.submit-btn').textContent='Order Sent — See You Soon';">
+        <h2>Order Ahead</h2>
+        <p class="sub">Fill this in and it'll be ready when you walk in.</p>
+        <div class="field"><label>Name</label><input type="text" placeholder="Your name" required></div>
+        <div class="field"><label>Order</label><input type="text" placeholder="e.g. Large drip, oat milk" required></div>
+        <div class="field"><label>Pickup Time</label><input type="time" required></div>
+        <button class="submit-btn" type="submit">Place Order</button>
+        <div class="form-note">Concept demo — not a working order system</div>
+      </form>
+    </div>
+  </section>
+
+  <div class="tk-credit">Design concept by <a href="mailto:tahmidkhondokar@gmail.com">Tahmid Khondokar</a> — tahmidkhondokar@gmail.com</div>
+
+</body>
+</html>

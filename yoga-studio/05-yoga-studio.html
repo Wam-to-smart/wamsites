@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../WamSite-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Still Water — Concept by Tahmid Khondokar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;1,400;1,500&family=Karla:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  body{margin:0;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  ul{list-style:none;margin:0;padding:0}
+  .tk-bar{display:flex;justify-content:space-between;align-items:center;height:44px;padding:0 24px;background:#0A0A0A;color:#EDEBE6;font:11px 'Space Mono',monospace;letter-spacing:.04em}
+  .tk-bar a{opacity:.72}.tk-bar a:hover{opacity:1}.tk-bar .links{display:flex;gap:18px}
+  .c5{background:#F7F3EE;color:#2C3639;min-height:100vh}
+  .c5-nav{display:flex;justify-content:space-between;align-items:center;padding:26px 8vw 0}
+  .c5-nav .logo{font:italic 1.4rem 'Newsreader',serif}
+  .c5-nav ul{display:flex;gap:38px;font:400 .85rem 'Karla',sans-serif}
+  .c5-nav .cta{font:.85rem 'Karla',sans-serif;border-bottom:1px solid #2C3639;padding-bottom:2px}
+  .c5-hero{text-align:center;padding:70px 8vw 40px;max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+  .c5-ring{width:150px;height:150px;border-radius:50%;border:1px solid rgba(44,54,57,.25);position:relative;margin-bottom:44px;display:flex;align-items:center;justify-content:center}
+  .c5-ring::before{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid rgba(168,181,160,.6);animation:c5breathe 7s ease-in-out infinite}
+  .c5-ring span{font:.68rem 'Karla',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#8FA189}
+  @keyframes c5breathe{0%,100%{transform:scale(.72);opacity:.35}50%{transform:scale(1.28);opacity:.9}}
+  @media(prefers-reduced-motion:reduce){.c5-ring::before{animation:none}}
+  .c5-hero h1{font:italic 400 clamp(2.2rem,5vw,3.6rem)/1.2 'Newsreader',serif;margin:0 0 22px}
+  .c5-hero p{font:300 1.02rem/1.8 'Karla',sans-serif;color:#57625F;max-width:42ch;margin:0 0 36px}
+  .c5-hero .cta{background:#2C3639;color:#F7F3EE;padding:15px 34px;font:.88rem 'Karla',sans-serif;display:inline-block}
+  .c5-classes{max-width:760px;margin:0 auto;padding:30px 8vw 75px}
+  .c5-classes .heading{font:.75rem 'Karla',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8FA189;text-align:center;margin-bottom:10px}
+  .c5-class{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:22px 4px;border-bottom:1px solid rgba(44,54,57,.14)}
+  .c5-class .name{font:italic 1.15rem 'Newsreader',serif}
+  .c5-class .desc{font:300 .82rem 'Karla',sans-serif;color:#7A857F;text-align:right;max-width:26ch}
+  .c5-footer{text-align:center;padding:0 8vw 60px;font:.82rem 'Karla',sans-serif;color:#7A857F}
+  .tk-credit{text-align:center;padding:26px 8vw;font:11px 'Space Mono',monospace;letter-spacing:.03em;background:#0A0A0A;color:rgba(237,235,230,.5)}
+  .tk-credit a{color:#A8B5A0}
+  @media(max-width:860px){.c5-nav ul{display:none}}
+  @media(max-width:560px){.c5-class{flex-direction:column}.c5-class .desc{text-align:left}}
+</style>
+</head>
+<body>
+<div class="tk-bar">
+  <a href="../index.html">← All Concepts</a>
+  <div class="links"><a href="../garage/04-garage.html">← Garage</a><span>05 / 06</span><a href="../restaurant/06-restaurant.html">Next: Restaurant →</a></div>
+</div>
+
+<section class="c5">
+  <nav class="c5-nav">
+    <a class="logo" href="05-yoga-studio.html">Still Water</a>
+    <ul>
+      <li><a href="05-yoga-classes.html">Classes</a></li>
+      <li><a href="05-yoga-teachers.html">Teachers</a></li>
+      <li><a href="05-yoga-visit.html">Visit</a></li>
+    </ul>
+    <a class="cta" href="05-yoga-book.html">Book a Class</a>
+  </nav>
+
+  <div class="c5-hero">
+    <div class="c5-ring"><span>breathe</span></div>
+    <h1>Room to breathe.</h1>
+    <p>A small studio built around slowness — fewer classes, smaller groups, and enough quiet between them to actually notice how you feel.</p>
+    <a class="cta" href="05-yoga-book.html">Try Your First Class Free</a>
+  </div>
+
+  <div class="c5-classes">
+    <div class="heading">This Week's Classes</div>
+    <a class="c5-class" href="05-yoga-classes.html"><div class="name">Vinyasa Flow</div><div class="desc">Movement paced to breath, mid-tempo</div></a>
+    <a class="c5-class" href="05-yoga-classes.html"><div class="name">Restorative</div><div class="desc">Held poses, blankets and bolsters provided</div></a>
+    <a class="c5-class" href="05-yoga-classes.html"><div class="name">Breathwork</div><div class="desc">Seated, guided, no mat required</div></a>
+    <a class="c5-class" href="05-yoga-classes.html"><div class="name">Prenatal</div><div class="desc">Gentle sequencing for every trimester</div></a>
+  </div>
+
+  <div class="c5-footer">
+    Studio open daily · <a href="05-yoga-visit.html">512 Willow Court</a>
+  </div>
+</section>
+
+<div class="tk-credit">Design concept by <a href="mailto:tahmidkhondokar@gmail.com">Tahmid Khondokar</a> — tahmidkhondokar@gmail.com</div>
+</body>
+</html>

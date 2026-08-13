@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="../WamSite-logo.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sterling Vale — Concept by Tahmid Khondokar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{ box-sizing:border-box; }
+  body{ margin:0; -webkit-font-smoothing:antialiased; }
+  a{ text-decoration:none; color:inherit; }
+  ul{ list-style:none; margin:0; padding:0; }
+
+  .tk-bar{ display:flex; justify-content:space-between; align-items:center; height:44px; padding:0 24px;
+    background:#0A0A0A; color:#EDEBE6; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.04em; }
+  .tk-bar a{ opacity:.72; } .tk-bar a:hover{ opacity:1; }
+  .tk-bar .links{ display:flex; gap:18px; }
+
+  .c2{ background:#0B1E33; color:#F2EFEA; }
+  .c2-nav{ display:flex; justify-content:space-between; align-items:center; padding:22px 8vw 30px; border-bottom:1px solid rgba(201,164,97,.25); }
+  .c2-nav .logo{ font-family:'Cormorant Garamond',serif; font-size:1.5rem; letter-spacing:.06em; }
+  .c2-nav .logo span{ color:#C9A461; }
+  .c2-nav ul{ display:flex; gap:36px; font-family:'Source Serif 4',serif; font-size:.86rem; letter-spacing:.02em; }
+  .c2-nav .cta{ border:1px solid #C9A461; color:#C9A461; padding:10px 22px; font-family:'Source Serif 4',serif; font-size:.82rem; }
+  .c2-hero{ text-align:center; padding:100px 8vw 80px; max-width:900px; margin:0 auto; }
+  .c2-hero .rule{ width:60px; height:1px; background:#C9A461; margin:0 auto 30px; }
+  .c2-hero h1{ font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(2.4rem,5.2vw,4.2rem); line-height:1.15; margin:0 0 26px; }
+  .c2-hero h1 em{ font-style:italic; color:#C9A461; }
+  .c2-hero p{ font-family:'Source Serif 4',serif; font-size:1.05rem; line-height:1.75; color:rgba(242,239,234,.7); max-width:52ch; margin:0 auto 36px; }
+  .c2-hero .cta{ background:#C9A461; color:#0B1E33; padding:15px 32px; font-family:'Source Serif 4',serif; font-weight:500; font-size:.9rem; display:inline-block; }
+  .c2-areas{ padding:20px 8vw 90px; }
+  .c2-areas .heading{ font-family:'Source Serif 4',serif; font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:#C9A461; text-align:center; margin-bottom:44px; }
+  .c2-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(201,164,97,.2); border:1px solid rgba(201,164,97,.2); }
+  .c2-item{ background:#0B1E33; padding:40px 26px; }
+  .c2-item .roman{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.6rem; color:#C9A461; }
+  .c2-item h3{ font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:500; margin:16px 0 10px; }
+  .c2-item p{ font-family:'Source Serif 4',serif; font-size:.85rem; color:rgba(242,239,234,.6); line-height:1.6; margin:0; }
+  .c2-footer{ border-top:1px solid rgba(201,164,97,.25); padding:40px 8vw; display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; font-family:'Source Serif 4',serif; font-size:.85rem; color:rgba(242,239,234,.55); }
+  .c2-footer .quote{ font-family:'Cormorant Garamond',serif; font-style:italic; color:#C9A461; }
+
+  .tk-credit{ text-align:center; padding:26px 8vw; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.03em; background:#0A0A0A; color:rgba(237,235,230,.5); }
+  .tk-credit a{ color:#C9A461; }
+
+  @media (max-width:860px){ .c2-grid{ grid-template-columns:1fr 1fr; } .c2-nav ul{ display:none; } }
+  @media (max-width:560px){ .c2-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+  <div class="tk-bar">
+    <a href="../index.html">← All Concepts</a>
+    <div class="links"><a href="../cafe/01-cafe.html">← Café</a><span>02 / 06</span><a href="../florist/03-florist.html">Next: Florist →</a></div>
+  </div>
+
+  <section class="c2">
+    <nav class="c2-nav">
+      <a class="logo" href="02-law-firm.html">Sterling <span>Vale</span></a>
+      <ul><li><a href="02-law-firm.html#practice-areas">Practice Areas</a></li><li><a href="02-law-team.html">Our Team</a></li><li><a href="02-law-consult.html">Consult</a></li></ul>
+      <a class="cta" href="02-law-consult.html">Schedule a Consultation</a>
+    </nav>
+    <div class="c2-hero">
+      <div class="rule"></div>
+      <h1>Clarity, counsel, <em>and conviction.</em></h1>
+      <p>A small firm built around a simple idea: clients deserve a lawyer who answers their own phone. We take on fewer cases so each one gets the attention it's owed.</p>
+      <a class="cta" href="02-law-consult.html">Book a Private Consultation</a>
+    </div>
+    <div class="c2-areas" id="practice-areas">
+      <div class="heading">Practice Areas</div>
+      <div class="c2-grid">
+        <div class="c2-item"><div class="roman">I</div><h3>Estate Planning</h3><p>Wills, trusts, and the quiet paperwork that protects a family later.</p></div>
+        <div class="c2-item"><div class="roman">II</div><h3>Business Law</h3><p>Formation, contracts, and counsel for owners who'd rather run the business.</p></div>
+        <div class="c2-item"><div class="roman">III</div><h3>Real Estate</h3><p>Closings and disputes handled with the same care as a first-time buyer deserves.</p></div>
+        <div class="c2-item"><div class="roman">IV</div><h3>Litigation</h3><p>Measured when it can be, firm when it has to be.</p></div>
+      </div>
+    </div>
+    <div class="c2-footer">
+      <div class="quote">"The right counsel changes the outcome."</div>
+      <div>221 Courthouse Sq, Suite 4 — By appointment</div>
+    </div>
+  </section>
+
+  <div class="tk-credit">Design concept by <a href="mailto:tahmidkhondokar@gmail.com">Tahmid Khondokar</a> — tahmidkhondokar@gmail.com</div>
+
+</body>
+</html>

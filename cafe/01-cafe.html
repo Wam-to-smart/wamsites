@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="../WamSite-logo.png"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember &amp; Oak — Concept by Tahmid Khondokar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{ box-sizing:border-box; }
+  body{ margin:0; -webkit-font-smoothing:antialiased; }
+  a{ text-decoration:none; color:inherit; }
+  ul{ list-style:none; margin:0; padding:0; }
+
+  .tk-bar{ display:flex; justify-content:space-between; align-items:center; height:44px; padding:0 24px;
+    background:#0A0A0A; color:#EDEBE6; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.04em; }
+  .tk-bar a{ opacity:.72; } .tk-bar a:hover{ opacity:1; }
+  .tk-bar .links{ display:flex; gap:18px; }
+
+  .c1{ background:#F4EDE4; color:#2B1B12; }
+  .c1-nav{ display:flex; justify-content:space-between; align-items:center; padding:18px 8vw 22px; border-bottom:1px solid rgba(43,27,18,.12); }
+  .c1-nav .logo{ font-family:'Fraunces', serif; font-weight:600; font-size:1.3rem; letter-spacing:-.01em; }
+  .c1-nav ul{ display:flex; gap:34px; font-family:'Inter',sans-serif; font-size:.9rem; }
+  .c1-nav .order{ background:#2B1B12; color:#F4EDE4; padding:10px 20px; border-radius:2px; font-family:'Inter',sans-serif; font-size:.85rem; font-weight:500; }
+  .c1-hero{ display:grid; grid-template-columns:1.1fr .9fr; gap:60px; padding:70px 8vw; align-items:center; }
+  .c1-hero h1{ font-family:'Fraunces', serif; font-weight:400; font-size:clamp(2.2rem,4.4vw,3.6rem); line-height:1.06; margin:0 0 22px; }
+  .c1-hero h1 em{ font-style:italic; font-weight:500; color:#C1502E; }
+  .c1-hero p{ font-family:'Inter',sans-serif; font-size:1rem; line-height:1.7; color:#4A3527; max-width:42ch; margin:0 0 30px; }
+  .c1-hero .btn-row{ display:flex; gap:16px; align-items:center; }
+  .c1-btn{ background:#C1502E; color:#F4EDE4; padding:14px 26px; border-radius:2px; font-family:'Inter',sans-serif; font-size:.9rem; font-weight:500; }
+  .c1-btn.ghost{ background:none; color:#2B1B12; border:1px solid rgba(43,27,18,.3); }
+  .c1-bean{ position:relative; aspect-ratio:1/1; border-radius:50%; background:radial-gradient(circle at 35% 30%, #C1502E, #7A3319 55%, #2B1B12 100%); }
+  .c1-bean::after{ content:''; position:absolute; inset:0; border-radius:50%; background:repeating-radial-gradient(circle at 50% 50%, transparent 0 18px, rgba(255,255,255,.03) 18px 19px); }
+  .c1-roast{ padding:10px 8vw 70px; }
+  .c1-roast .heading{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#A9825C; margin-bottom:26px; }
+  .c1-timeline{ display:flex; align-items:flex-start; gap:0; position:relative; }
+  .c1-stage{ flex:1; text-align:center; position:relative; padding-top:26px; }
+  .c1-stage::before{ content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:14px; height:14px; border-radius:50%; border:2px solid #F4EDE4; z-index:2; }
+  .c1-stage::after{ content:''; position:absolute; top:6px; left:-50%; width:100%; height:2px; background:rgba(43,27,18,.15); z-index:1; }
+  .c1-stage:first-child::after{ display:none; }
+  .c1-stage .name{ font-family:'Fraunces',serif; font-size:.95rem; font-weight:600; margin-top:14px; }
+  .c1-stage .desc{ font-family:'Inter',sans-serif; font-size:.78rem; color:#6B5544; margin-top:4px; }
+  .c1-stage:nth-child(1)::before{ background:#D9B888; }
+  .c1-stage:nth-child(2)::before{ background:#C1502E; }
+  .c1-stage:nth-child(3)::before{ background:#8A3B22; }
+  .c1-stage:nth-child(4)::before{ background:#5C2A17; }
+  .c1-stage:nth-child(5)::before{ background:#2B1B12; }
+  .c1-features{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(43,27,18,.12); border-top:1px solid rgba(43,27,18,.12); border-bottom:1px solid rgba(43,27,18,.12); }
+  .c1-card{ background:#F4EDE4; padding:44px 8vw 44px 40px; }
+  .c1-card .n{ font-family:'Space Mono',monospace; font-size:.75rem; color:#A9825C; }
+  .c1-card h3{ font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; margin:12px 0 10px; }
+  .c1-card p{ font-family:'Inter',sans-serif; font-size:.88rem; color:#5C4632; line-height:1.6; margin:0; }
+  .c1-footer{ display:flex; justify-content:space-between; padding:36px 8vw; font-family:'Inter',sans-serif; font-size:.82rem; color:#6B5544; flex-wrap:wrap; gap:10px; }
+
+  .tk-credit{ text-align:center; padding:26px 8vw; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.03em; background:#0A0A0A; color:rgba(237,235,230,.5); }
+  .tk-credit a{ color:#D97C4A; }
+
+  @media (max-width:860px){ .c1-hero{ grid-template-columns:1fr; } .c1-features{ grid-template-columns:1fr 1fr; } .c1-nav ul{ display:none; } }
+  @media (max-width:560px){
+    .c1-features{ grid-template-columns:1fr; }
+    .c1-timeline{ flex-direction:column; gap:18px; align-items:flex-start; }
+    .c1-stage::after{ display:none; }
+    .c1-stage{ text-align:left; padding-left:26px; padding-top:0; }
+    .c1-stage::before{ left:0; top:2px; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tk-bar">
+  <a href="../index.html">← All Concepts</a>
+  <div class="links">
+    <span>01 / 06</span>
+    <a href="../law-firm/02-law-firm.html">Next: Law Firm →</a>
+  </div>
+</div>
+
+  <section class="c1">
+    <nav class="c1-nav">
+      <div class="logo">Ember &amp; Oak</div>
+      <ul><li><a href="01-cafe-menu.html">Menu</a></li><li><a href="01-cafe-origins.html">Origins</a></li><li><a href="01-cafe-visit.html">Visit</a></li></ul>
+      <a class="order" href="01-cafe-menu.html">Order Ahead</a>
+    </nav>
+    <div class="c1-hero">
+      <div>
+        <h1>Roasted in small batches, <em>poured with intention.</em></h1>
+        <p>A neighborhood roastery sourcing single-origin beans directly from growers, then roasting them a few pounds at a time — never more than what we'll pour this week.</p>
+        <div class="btn-row">
+          <a class="c1-btn" href="01-cafe-menu.html">See This Week's Roast</a>
+          <a class="c1-btn ghost" href="01-cafe-origins.html">Our Origins</a>
+        </div>
+      </div>
+      <div class="c1-bean"></div>
+    </div>
+    <div class="c1-roast">
+      <div class="heading">The Roast, Stage by Stage</div>
+      <div class="c1-timeline">
+        <div class="c1-stage"><div class="name">Green</div><div class="desc">Raw, grassy, unroasted</div></div>
+        <div class="c1-stage"><div class="name">First Crack</div><div class="desc">Sugars begin to caramelize</div></div>
+        <div class="c1-stage"><div class="name">City Roast</div><div class="desc">Bright, balanced acidity</div></div>
+        <div class="c1-stage"><div class="name">Full City</div><div class="desc">Deeper body, less acidity</div></div>
+        <div class="c1-stage"><div class="name">French</div><div class="desc">Bold, smoky, oil-slicked</div></div>
+      </div>
+    </div>
+    <div class="c1-features">
+      <div class="c1-card"><div class="n">01</div><h3>Single-Origin</h3><p>New origins rotate in monthly, each one cupped and scored before it ever reaches a bag.</p></div>
+      <div class="c1-card"><div class="n">02</div><h3>Slow Cold Brew</h3><p>Steeped for eighteen hours in small batches, filtered twice, never diluted.</p></div>
+      <div class="c1-card"><div class="n">03</div><h3>Roast Subscription</h3><p>A fresh bag on your doorstep every two weeks, timed to when the last one runs out.</p></div>
+    </div>
+    <div class="c1-footer">
+      <div>412 Maple Row, open daily 7am–4pm</div>
+      <div>Ember &amp; Oak Roasting Co.</div>
+    </div>
+  </section>
+
+  <div class="tk-credit">Design concept by <a href="mailto:tahmidkhondokar@gmail.com">Tahmid Khondokar</a> — tahmidkhondokar@gmail.com</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+
+*{box-sizing:border-box}
+body{margin:0;background:#f7f3ee;color:#2c3639;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}ul{list-style:none;margin:0;padding:0}
+.tk-bar{display:flex;justify-content:space-between;align-items:center;min-height:44px;padding:0 24px;background:#0a0a0a;color:#edebe6;font:11px 'Space Mono',monospace;letter-spacing:.04em}
+.tk-bar a{opacity:.72}.tk-bar a:hover{opacity:1}.tk-bar .links{display:flex;gap:18px}
+.c5{background:#f7f3ee;min-height:100vh}
+.c5-nav{display:flex;justify-content:space-between;align-items:center;padding:26px 8vw}
+.c5-nav .logo{font:italic 1.5rem 'Newsreader',serif}.c5-nav ul{display:flex;gap:38px;font:400 .85rem 'Karla',sans-serif}
+.c5-nav .cta{border-bottom:1px solid #2c3639;padding-bottom:2px;font:.85rem 'Karla',sans-serif}
+.hero{text-align:center;padding:65px 8vw 75px;max-width:900px;margin:auto}
+.ring{width:150px;height:150px;border-radius:50%;border:1px solid #b8c1b5;margin:0 auto 42px;display:grid;place-items:center;position:relative}
+.ring:before{content:"";position:absolute;inset:0;border:1px solid #a8b5a0;border-radius:50%;animation:breathe 7s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(.72);opacity:.3}50%{transform:scale(1.28);opacity:.9}}
+.hero h1{font:italic 400 clamp(2.5rem,6vw,4.5rem) 'Newsreader',serif;margin:0 0 20px}.hero p{max-width:48ch;margin:0 auto 30px;color:#65716c;font:300 1rem/1.8 'Karla',sans-serif}
+.btn{display:inline-block;background:#2c3639;color:#f7f3ee;padding:14px 28px;font:.85rem 'Karla',sans-serif;border:0;cursor:pointer}
+.section{padding:75px 8vw}.section h2{font:italic 400 clamp(2rem,5vw,3.5rem) 'Newsreader',serif;margin:0 0 25px}
+.label{text-align:center;font:.72rem 'Karla',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8fa189;margin-bottom:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:#eee8df;padding:32px;border:1px solid rgba(44,54,57,.08)}.card h3{font:italic 400 1.3rem 'Newsreader',serif;margin:0 0 10px}.card p{font:300 .88rem/1.7 'Karla',sans-serif;color:#68736f}.card .meta{font:.7rem 'Karla',sans-serif;text-transform:uppercase;letter-spacing:.1em;color:#8fa189;margin-top:20px}
+.class-list{max-width:760px;margin:auto}.class-item{display:flex;justify-content:space-between;gap:25px;padding:24px 5px;border-bottom:1px solid rgba(44,54,57,.14)}.class-item h3{font:italic 400 1.2rem 'Newsreader',serif;margin:0}.class-item p{font:300 .8rem 'Karla',sans-serif;color:#7a857f;text-align:right;margin:0;max-width:30ch}
+.notice{background:#a8b5a0;padding:35px;margin-top:35px}.notice h3{font:italic 400 1.5rem 'Newsreader',serif;margin:0 0 10px}.notice p{font:300 .9rem/1.7 'Karla',sans-serif}
+.form{max-width:850px;margin:auto}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:8px;margin-bottom:17px}.field.full{grid-column:1/-1}.field label{font:.72rem 'Karla',sans-serif;text-transform:uppercase;letter-spacing:.08em}
+input,select,textarea{width:100%;padding:14px;background:#fffdfa;border:1px solid rgba(44,54,57,.18);color:#2c3639;font:400 .9rem 'Karla',sans-serif}textarea{min-height:130px;resize:vertical}input:focus,select:focus,textarea:focus{outline:none;border-color:#8fa189}
+.map{min-height:300px;background:#e9e4dc;display:grid;place-items:center;text-align:center}.map strong{font:italic 2.7rem 'Newsreader',serif}.map span{display:block;margin-top:8px;color:#7a857f;font:11px 'Space Mono',monospace}
+.price{font:italic 1.8rem 'Newsreader',serif;color:#71816c;margin-top:18px}.stars{color:#71816c;letter-spacing:3px}
+.footer{text-align:center;padding:30px 8vw 60px;color:#7a857f;font:300 .82rem 'Karla',sans-serif}.footer a{color:#65716c;text-decoration:underline}
+.tk-credit{text-align:center;padding:26px 8vw;background:#0a0a0a;color:#777;font:11px 'Space Mono',monospace}.tk-credit a{color:#a8b5a0}
+@media(max-width:860px){.c5-nav ul{display:none}.grid3{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}
+@media(max-width:560px){.grid3,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.class-item{flex-direction:column}.class-item p{text-align:left}.tk-bar .links a:first-child{display:none}}
